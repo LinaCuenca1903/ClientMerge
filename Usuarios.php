@@ -83,7 +83,7 @@
 <body>
 
 <h2>Panel de Usuarios</h2>
-<button onclick="location.href='admin.html'">🔙 Volver</button>
+<button onclick="location.href='admin.php'">🔙 Volver</button>
 <button class="btn-add" onclick="openUserForm()">➕ Agregar Usuario</button>
 
 <table id="userTable">
@@ -209,25 +209,27 @@ async function guardarUsuario() {
     alert("❌ Error: " + resData.error);
   }
 }
+// Funcion eliminar
 
 async function deleteUser(id) {
   if (!confirm("¿Estás seguro de eliminar este usuario?")) return;
 
   const response = await fetch("auth/usuarios.php", {
-    method: "DELETE",
+    method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ id_usuario: id })
+    body: JSON.stringify({ eliminar: true, id_usuario: id }) // usa POST
   });
 
   const resData = await response.json();
 
-  if (response.ok) {
+  if (response.ok && resData.success) {
     alert("🗑️ Usuario eliminado");
-    loadUsers();
+    loadUsers(); // recarga la tabla
   } else {
-    alert("❌ Error al eliminar: " + resData.error);
+    alert("❌ Error al eliminar: " + (resData.error || "Error desconocido"));
   }
 }
+
 
 loadUsers();
 </script>

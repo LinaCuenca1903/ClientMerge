@@ -10,7 +10,7 @@
   <nav class="navbar">
     <ul>
       <li><a href="#" onclick="toggleMetricas()">Métricas</a></li>
-      <li><a href="index.html">Cerrar Sesión</a></li>
+      <li><a href="index.php">Cerrar Sesión</a></li>
     </ul>
   </nav>
 

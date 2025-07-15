@@ -5,14 +5,25 @@ if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
 
-// Consulta para contar usuarios
+// Total usuarios
 $sql = "SELECT COUNT(*) AS total FROM usuariolmcd";
 $result = $conn->query($sql);
-$total_usuarios = 0;
+$total_usuarios = ($result && $row = $result->fetch_assoc()) ? $row['total'] : 0;
 
-if ($result && $row = $result->fetch_assoc()) {
-    $total_usuarios = $row['total'];
-}
+// Casos Activos (estado = 'Abierto')
+$sql = "SELECT COUNT(*) AS activos FROM casolmcd WHERE estado = 'Abierto'";
+$result = $conn->query($sql);
+$casos_activos = ($result && $row = $result->fetch_assoc()) ? $row['activos'] : 0;
+
+// Solicitudes Pendientes (estado = 'En Progreso')
+$sql = "SELECT COUNT(*) AS pendientes FROM casolmcd WHERE estado = 'En Progreso'";
+$result = $conn->query($sql);
+$casos_pendientes = ($result && $row = $result->fetch_assoc()) ? $row['pendientes'] : 0;
+
+// Artículos en base de conocimiento
+$sql = "SELECT COUNT(*) AS total FROM articulolmcd";
+$result = $conn->query($sql);
+$total_articulos = ($result && $row = $result->fetch_assoc()) ? $row['total'] : 0;
 
 $conn->close();
 ?>
@@ -31,10 +42,10 @@ $conn->close();
         <nav>
             <ul>
                 <li><a href="Usuarios.php">Usuarios</a></li>
-                <li><a href="gestionarcasosadmin.html">Casos</a></li>
-                <li><a href="baseconocimientoadmin.html">Base de Conocimiento</a></li>
-                <li><a href="admin_reportes.html">Reportes</a></li>
-                <li><a href="Index.html">Cerrar Sesión</a></li>
+                <li><a href="gestionarcasosadmin.php">Casos</a></li>
+                <li><a href="baseconocimientoadmin.php">Base de Conocimiento</a></li>
+                <li><a href="admin_reportes.php">Reportes</a></li>
+                <li><a href="Index.php">Cerrar Sesión</a></li>
             </ul>
         </nav>
     </header>
@@ -49,15 +60,15 @@ $conn->close();
                 </div>
                 <div class="card">
                     <h3>Casos Activos</h3>
-                    <p>35</p>
+                    <p><?php echo $casos_activos; ?></p>
                 </div>
                 <div class="card">
                     <h3>Solicitudes Pendientes</h3>
-                    <p>18</p>
+                    <p><?php echo $casos_pendientes; ?></p>
                 </div>
                 <div class="card">
                     <h3>Base de Conocimiento</h3>
-                    <p>55 Artículos</p>
+                    <p><?php echo $total_articulos; ?> Artículos</p>
                 </div>
             </div>
         </section>

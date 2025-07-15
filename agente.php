@@ -14,10 +14,10 @@
   <nav>
     <ul>
       <li><a href="#"><img src="lupa.png" alt="Buscar" class="lupa"> Buscar Cliente</a></li>
-      <li><a href="nuevocaso.html">Nuevo Caso</a></li>
-      <li><a href="basededatos.html">Base de Conocimiento</a></li>
+      <li><a href="nuevocaso.php">Nuevo Caso</a></li>
+      <li><a href="basededatos.php">Base de Conocimiento</a></li>
       <li><a href="#">Chatbot</a></li>
-      <li><a href="Index.html">Cerrar Sesión</a></li>
+      <li><a href="Index.php">Cerrar Sesión</a></li>
     </ul>
   </nav>
 

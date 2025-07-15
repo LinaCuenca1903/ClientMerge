@@ -104,9 +104,9 @@
                             sessionStorage.setItem("id_usuario", id); // Guarda el ID del usuario
 
                 if (rol === "agente") {
-                    window.location.href = "agente.html";
+                    window.location.href = "agente.php";
                 } else if (rol === "supervisor") {
-                    window.location.href = "supervisor.html";
+                    window.location.href = "supervisor.php";
                 } else if (rol === "Administrador") {
                     window.location.href = "admin.php";
                 } else {
