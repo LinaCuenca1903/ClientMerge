@@ -1,6 +1,7 @@
 <?php
-session_start(); // 👈 Necesario para usar $_SESSION
+session_start(); //  Necesario para usar $_SESSION
 
+//conexion BD
 $conn = new mysqli("localhost", "root", "", "crm_callcenter");
 if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
@@ -24,7 +25,7 @@ if ($result && $result->num_rows === 1) {
     $usuario = $result->fetch_assoc();
 
     if (password_verify($clave, $usuario['contrasena'])) {
-        // ✅ GUARDAR EN SESIÓN
+        //  GUARDAR EN SESIÓN
         $_SESSION['id_usuario'] = $usuario['id_usuario'];
         $_SESSION['rol'] = trim($usuario['rol']);
 

@@ -9,6 +9,7 @@ if ($conn->connect_error) {
     exit;
 }
 
+
 $data = json_decode(file_get_contents("php://input"), true);
 $id_caso = $conn->real_escape_string($data["id_caso"] ?? '');
 $estado = $conn->real_escape_string($data["estado"] ?? '');

@@ -12,7 +12,7 @@ if ($conn->connect_error) {
 $method = $_SERVER['REQUEST_METHOD'];
 $input = json_decode(file_get_contents("php://input"), true);
 
-// ✅ GET: Listar usuarios
+//  GET: Listar usuarios
 if ($method === 'GET') {
     $sql = "SELECT id_usuario, nombre, correo, rol FROM usuariolmcd";
     $result = $conn->query($sql);
@@ -26,9 +26,9 @@ if ($method === 'GET') {
     exit;
 }
 
-// ✅ POST: Insertar, actualizar o eliminar
+// POST: Insertar, actualizar o eliminar
 if ($method === 'POST') {
-    // ✅ Eliminar si viene el flag 'eliminar' activado
+    //  Eliminar si viene el flag 'eliminar' activado
     if (isset($input['eliminar']) && $input['eliminar'] === true) {
         $id_usuario = intval($input['id_usuario'] ?? 0);
 
@@ -52,7 +52,7 @@ if ($method === 'POST') {
         exit;
     }
 
-    // ✅ Insertar o actualizar
+    // Insertar o actualizar
     $id = isset($input['id_usuario']) ? intval($input['id_usuario']) : 0;
     $nombre = $input['nombre'] ?? '';
     $correo = $input['correo'] ?? '';
@@ -92,7 +92,7 @@ if ($method === 'POST') {
     exit;
 }
 
-// ❌ Método no permitido
+//  Método no permitido
 http_response_code(405);
 echo json_encode(["error" => "Método no permitido"]);
 ?>

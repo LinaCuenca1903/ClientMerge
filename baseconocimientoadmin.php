@@ -21,7 +21,7 @@
     <p>Client Merge © 2025</p>
   </footer>
 
-  <!-- React y Babel desde CDN (manual, sin Vite) -->
+  <!-- React y Babel desde CDN -->
   <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
   <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>

@@ -7,6 +7,8 @@ $conn = new mysqli("localhost", "root", "", "crm_callcenter");
 
 $data = json_decode(file_get_contents("php://input"), true);
 
+//Actualizar cliente en caso agente
+
 $id_cliente = intval($data['id_cliente'] ?? 0);
 $nombre = $conn->real_escape_string($data['nombre'] ?? '');
 $correo = $conn->real_escape_string($data['correo'] ?? '');

@@ -18,7 +18,7 @@ try {
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
 
-    // 👉 Usa un correo real y activa "contraseñas de aplicaciones"
+    //  Usa un correo real y activa "contraseñas de aplicaciones"
     $mail->Username = 'TUCORREO@gmail.com';
     $mail->Password = 'TU_CONTRASEÑA_DE_APP';
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;

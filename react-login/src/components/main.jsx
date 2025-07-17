@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import Usuarios from './components/Usuarios.jsx';
 import BaseConocimientoAdmin from './components/BaseConocimientoAdmin.jsx';
 
-// Función auxiliar para montar React en un div con un componente
+// Función auxiliar para montar React en un div
 function renderReactComponent(id, Component, props = {}) {
   const element = document.getElementById(id);
   if (element) {
@@ -15,9 +15,9 @@ function renderReactComponent(id, Component, props = {}) {
   }
 }
 
-// ✅ Módulo de usuarios
+// Módulo de usuarios
 renderReactComponent('react-root', Usuarios);
 
-// ✅ Base de conocimiento (formulario y tabla)
+// Base de conocimiento (formulario y tabla)
 renderReactComponent('formArticuloReact', BaseConocimientoAdmin, { seccion: 'formulario' });
 renderReactComponent('tablaArticulosReact', BaseConocimientoAdmin, { seccion: 'tabla' });

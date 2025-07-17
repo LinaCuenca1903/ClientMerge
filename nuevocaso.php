@@ -177,7 +177,7 @@
           {correoVisible && (
             <div className="panel">
               <h2>Enviar Correo</h2>
-              <p>El caso ha sido creado con éxito. No Olvides contactar al cliente</p>
+              <p>En construccion</p>
               
             </div>
           )}
